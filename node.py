@@ -65,7 +65,7 @@ class Node:
 
     def write_to_file_with_seen_cases(self, fout, depth):
         space = '\t' * depth
-        fout.write(space + str(self.condition) + ' : ' + self.conclusion + '\n')
+        fout.write(space + self.condition + ' : ' + self.conclusion + '\n')
         for case in self.corner_stone_cases:
             fout.write(' ' + space + 'cc: ' + str(case) + '\n')
         if self.except_child:
@@ -75,7 +75,7 @@ class Node:
 
     def write_to_file(self, fout, depth):
         space = '\t' * depth
-        fout.write(space + str(self.condition) + ' : ' + self.conclusion + '\n')
+        fout.write(space + self.condition + ' : ' + self.conclusion + '\n')
         if self.except_child:
             self.except_child.write_to_file(fout, depth + 1)
         if self.else_child:
